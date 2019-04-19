@@ -1,0 +1,20 @@
+	new randomNum,stdout(`rho:io:stdout`) in {
+	contract randomNum (@start,@end) = {
+		new nums,mark,endPoint in{
+			mark!(start)|
+			for(@a<=mark){
+				if(a<=end){
+					mark!(a+1)|nums!(a)
+				}else{
+					endPoint!(0)
+				}
+			}|
+			for(@a<-nums;_<-endPoint){
+				stdout!(a)|for(_<=nums){Nil}
+			}
+		}
+		
+
+	}|randomNum!(1,5)
+}
+

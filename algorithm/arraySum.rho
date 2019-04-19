@@ -1,0 +1,19 @@
+/**
+   get the sum of array. 
+   rholang doesn't support decimal
+*/
+new sumCount,stdout(`rho:io:stdout`) in{
+	sumCount!([1,2,3,4,5])|
+	contract sumCount(@array) = {
+		new indexChan,sumChan in {
+			sumChan!(0)|indexChan!(0)|
+			for(@sum<=sumChan; @index<=indexChan){
+				if(index<array.length()){
+					sumChan!(sum+array.nth(index))|indexChan!(index+1)
+				}else{
+					stdout!(sum)
+				}
+			}
+		}
+	}
+}
