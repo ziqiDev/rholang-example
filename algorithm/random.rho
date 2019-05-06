@@ -1,3 +1,8 @@
+/**
+	params start
+	params end
+	return random number
+*/
 	new randomNum,stdout(`rho:io:stdout`) in {
 	contract randomNum (@start,@end) = {
 		new nums,mark,endPoint in{

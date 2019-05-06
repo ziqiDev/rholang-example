@@ -1,0 +1,27 @@
+
+	new randomNum,stdout(`rho:io:stdout`),insertArbitrary(`rho:registry:insertArbitrary`),uriCh in {
+	contract randomNum (@start,@end,return) = {
+		new nums,mark,endPoint in{
+			mark!(start)|
+			for(@a<=mark){
+				if(a<=end){
+					mark!(a+1)|nums!(a)
+				}else{
+					endPoint!(0)
+				}
+			}|
+			for(@a<-nums;_<-endPoint){
+				return!(a)|for(_<=nums){Nil}
+			}
+		}
+
+	}|
+	insertArbitrary!(bundle+{*randomNum}, *uriCh)
+  	|
+  	for (uri <- uriCh){
+  	  stdout!(["Contract registered. URI is ", *uri])
+  	}
+
+}
+
+
